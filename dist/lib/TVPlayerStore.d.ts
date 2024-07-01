@@ -1,0 +1,3 @@
+import { TVPlayerProps } from './TVPlayerTypes';
+
+export declare const useTVPlayerStore: import('zustand').UseBoundStore<import("zustand").StoreApi<TVPlayerProps>>;
