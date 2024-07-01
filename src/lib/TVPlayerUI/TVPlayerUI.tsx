@@ -63,7 +63,6 @@ export const TVPlayerUI: React.FC<TVPlayerProps> = (props) => {
     disableFullscreen,
     hideControlsOnArrowUp,
   } = props;
-  const { focusKey, ref } = useFocusable();
 
   useTVPlayerActivity();
 
@@ -283,15 +282,14 @@ export const TVPlayerUI: React.FC<TVPlayerProps> = (props) => {
             <div className="metadata metadata--subTitle">{subTitle}</div>
           </div>
 
-          <FocusContext.Provider value={focusKey}>
-            <div className="buttons" ref={ref}>
+         
+            <div className="buttons" >
               <div className="buttons__left">{renderButtons("left")}</div>
 
               <div className="buttons__center">{renderButtons("center")}</div>
 
               <div className="buttons__right">{renderButtons("right")}</div>
             </div>
-          </FocusContext.Provider>
 
           <ProgressBar
             currentTime={progress.playedSeconds}
