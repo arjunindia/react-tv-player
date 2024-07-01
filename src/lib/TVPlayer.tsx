@@ -1,7 +1,6 @@
 import cn from "classnames";
 import React, { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
-import { init } from "@noriginmedia/norigin-spatial-navigation";
 import { useTVPlayerStore } from "./TVPlayerStore";
 import { TVPlayerProps } from "./TVPlayerTypes";
 import { TVPlayerUI } from "./TVPlayerUI";
@@ -16,12 +15,6 @@ function extractYouTubeIdFromUrl(url: string) {
 }
 
 export const TVPlayer: React.FC<TVPlayerProps> = (props) => {
-  init({
-    debug: false,
-    visualDebug: false,
-    throttle: 100,
-    // options
-  });
 
   const { onReady, onStart, onPause, onPlay, onError, onEnded, onBuffer } =
     props;
@@ -89,10 +82,6 @@ export const TVPlayer: React.FC<TVPlayerProps> = (props) => {
   }, [props.mediaIndex]);
 
   useEffect(() => {
-    document.body.style.background = fullscreen ? "black" : "unset";
-    document.body.style.overflow = fullscreen ? "hidden" : "unset";
-    document.body.style.padding = fullscreen ? "0" : "revert";
-    document.body.style.margin = fullscreen ? "0" : "revert";
     wrapperRef.current!.style.height = fullscreen ? "100vh" : "unset";
   }, [fullscreen]);
 
